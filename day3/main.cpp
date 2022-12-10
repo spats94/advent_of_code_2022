@@ -3,7 +3,6 @@
 #include <filesystem>
 #include <fstream>
 #include <utility>
-#include <map>
 #include <algorithm>
 
 using Rukzak = std::pair<std::string, std::string>;
@@ -45,8 +44,7 @@ int solve_first_part()
   int result = 0;
   for (auto el:data) {
     for (auto ch: el.first) {
-      size_t count = 0;
-      count = std::count_if(el.second.begin(), el.second.end(), [&ch](char c) { return c == ch; });
+      auto count = std::count_if(el.second.begin(), el.second.end(), [&ch](char c) { return c == ch; });
       if (count > 0) {
         if ('A' < ch && ch <= 'Z') {
           result += ch - 'A' + 27;

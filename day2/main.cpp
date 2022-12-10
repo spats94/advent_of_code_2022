@@ -15,7 +15,6 @@ std::vector<std::pair<char, char>> read_data()
 
   std::vector<std::pair<char, char>> data;
   while (getline(input, line)) {
-    auto test = line[0];
     auto elem = std::pair<char, char>(line[0], line[2]);
     data.emplace_back(elem);
   }
@@ -59,7 +58,7 @@ int solve_first_part()
 
 int solve_second_part()
 {
-  std::map<std::pair<char, char>, int> map_cond_win; // камень, бумага, ножницы
+  std::map<std::pair<char, char>, int> map_cond_win;
   map_cond_win[std::make_pair('A', 'X')] = points_per_game::loss + points_for_elem::nozhn;
   map_cond_win[std::make_pair('A', 'Y')] = points_per_game::dead_heat + points_for_elem::kamen;
   map_cond_win[std::make_pair('A', 'Z')] = points_per_game::win + points_for_elem::Bumaga;

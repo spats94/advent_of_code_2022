@@ -32,7 +32,7 @@ enum points_per_game
 enum points_for_elem
 {
     kamen = 1,
-    bumaga = 2,
+    Bumaga = 2,
     nozhn = 3
 };
 
@@ -62,11 +62,11 @@ int solve_second_part()
   std::map<std::pair<char, char>, int> map_cond_win; // камень, бумага, ножницы
   map_cond_win[std::make_pair('A', 'X')] = points_per_game::loss + points_for_elem::nozhn;
   map_cond_win[std::make_pair('A', 'Y')] = points_per_game::dead_heat + points_for_elem::kamen;
-  map_cond_win[std::make_pair('A', 'Z')] = points_per_game::win + points_for_elem::bumaga;
+  map_cond_win[std::make_pair('A', 'Z')] = points_per_game::win + points_for_elem::Bumaga;
   map_cond_win[std::make_pair('B', 'X')] = points_per_game::loss + points_for_elem::kamen;
-  map_cond_win[std::make_pair('B', 'Y')] = points_per_game::dead_heat + points_for_elem::bumaga;
+  map_cond_win[std::make_pair('B', 'Y')] = points_per_game::dead_heat + points_for_elem::Bumaga;
   map_cond_win[std::make_pair('B', 'Z')] = points_per_game::win + points_for_elem::nozhn;
-  map_cond_win[std::make_pair('C', 'X')] = points_per_game::loss + points_for_elem::bumaga;
+  map_cond_win[std::make_pair('C', 'X')] = points_per_game::loss + points_for_elem::Bumaga;
   map_cond_win[std::make_pair('C', 'Y')] = points_per_game::dead_heat + points_for_elem::nozhn;
   map_cond_win[std::make_pair('C', 'Z')] = points_per_game::win + points_for_elem::kamen;
 

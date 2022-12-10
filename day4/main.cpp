@@ -12,13 +12,11 @@ struct Elves {
 
 std::vector<std::pair<Elves, Elves>> read_data()
 {
-  //  auto path = std::filesystem::current_path().string() + "/day4/inputs/test_input.txt";
-  auto path = std::filesystem::current_path().string() + "/day4/inputs/input.txt";
+  //  auto path = std::filesystem::current_path().string() + "/../../day4/inputs/test_input.txt";
+  auto path = std::filesystem::current_path().string() + "/../../day4/inputs/input.txt";
   std::ifstream input (path);
-
   std::string line;
   std::vector<std::pair<Elves, Elves>> data;
-
 
   while (getline(input, line)) {
     std::regex words_regex("[0-9]+");

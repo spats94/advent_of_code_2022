@@ -6,8 +6,8 @@
 #include <regex>
 
 struct Elves {
-    int first_id;
-    int second_id;
+    int left_bound;
+    int right_bound;
 };
 
 std::vector<std::pair<Elves, Elves>> read_data()
@@ -29,8 +29,8 @@ std::vector<std::pair<Elves, Elves>> read_data()
       int match_int = std::stoi(match.str());
       vector_temp.emplace_back(match_int);
     }
-    data.emplace_back(Elves{.first_id = vector_temp[0], .second_id = vector_temp[1]},
-                      Elves{.first_id = vector_temp[2], .second_id = vector_temp[3]});
+    data.emplace_back(Elves{.left_bound = vector_temp[0], .right_bound = vector_temp[1]},
+                      Elves{.left_bound = vector_temp[2], .right_bound = vector_temp[3]});
   }
   input.close();
   return data;
@@ -41,11 +41,11 @@ int solve_first_part()
   auto data = read_data();
   int count = 0;
   for (auto elem:data) {
-    if (elem.first.first_id >= elem.second.first_id &&  elem.first.second_id <= elem.second.second_id) {
+    if (elem.first.left_bound >= elem.second.left_bound &&  elem.first.right_bound <= elem.second.right_bound) {
       count++;
       continue;
     }
-    if (elem.second.first_id >= elem.first.first_id &&  elem.second.second_id <= elem.first.second_id) {
+    if (elem.second.left_bound >= elem.first.left_bound &&  elem.second.right_bound <= elem.first.right_bound) {
       count++;
       continue;
     }
@@ -58,11 +58,11 @@ int solve_second_part()
   auto data = read_data();
   int count = 0;
   for (auto elem:data) {
-    if (elem.first.first_id >= elem.second.first_id && elem.first.first_id <= elem.second.second_id) {
+    if (elem.first.left_bound >= elem.second.left_bound && elem.first.left_bound <= elem.second.right_bound) {
       count++;
       continue;
     }
-    if (elem.second.first_id >= elem.first.first_id && elem.second.first_id <= elem.first.second_id) {
+    if (elem.second.left_bound >= elem.first.left_bound && elem.second.left_bound <= elem.first.right_bound) {
       count++;
       continue;
     }
